@@ -1,1 +1,1 @@
-# svsqm
+# Singl-value software quality metric
