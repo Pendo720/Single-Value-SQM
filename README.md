@@ -1,1 +1,1 @@
-# Singl-value software quality metric
+# Singl-Value Software Quality Metric
