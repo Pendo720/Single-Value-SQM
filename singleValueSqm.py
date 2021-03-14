@@ -16,7 +16,7 @@ class singleValueSqm:
         self.dimValues = dimValues   
    
     def plotValues(self):
-        '''Plots the set of values in vals on the four dimension of quality
+        '''Plots the set of values in dimValues on the four dimension
         Note: two of the values are negated for display purposes.    
         '''
         xs = [0, self.dimValues[1], 0, -self.dimValues[3]]
@@ -30,7 +30,7 @@ class singleValueSqm:
 
         codes = [Path.MOVETO] + [Path.LINETO]*3 + [Path.CLOSEPOLY]
         path = Path(vertices, codes)
-        pathPatch = PathPatch(path, facecolor='None', edgecolor='blue')
+        pathPatch = PathPatch(path, facecolor='None', edgecolor='black')
         
         ax.add_patch(pathPatch)    
         ax.autoscale_view()
