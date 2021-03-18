@@ -15,12 +15,15 @@ class singleValueSqm:
         '''
         self.dimValues = dimValues   
    
-    def plotValues(self):
+    def showMap(self):
         '''Plots the set of values in dimValues on the four dimension
         Note: two of the values are negated for display purposes.    
         '''
-        xs = [0, self.dimValues[1], 0, -self.dimValues[3]]
-        ys = [self.dimValues[0], 0, -self.dimValues[2], 0]
+        xs = [0 if i%2==0 else r for i, r in enumerate(self.dimValues)]
+        xs[3] = -xs[3]
+        ys = [r if i%2==0 else 0 for i, r in enumerate(self.dimValues)]
+        ys[2] = -ys[2]
+        
         plt.style.use('fivethirtyeight')    
         _, ax = plt.subplots()    
         ax.dpi = 70
@@ -34,8 +37,8 @@ class singleValueSqm:
         
         ax.add_patch(pathPatch)    
         ax.autoscale_view()
-        plt.ylabel('Documentation/Specification')
-        plt.xlabel('Testing/Implementation')
+        plt.ylabel('Documentation/Specification', loc='center')
+        plt.xlabel('Testing/Implementation', loc='center')
         plt.title('Single-Value-SQM')
         ticks = [m for m in np.arange(-4, 5, 1)]
         plt.xticks(ticks)
